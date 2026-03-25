@@ -4,7 +4,7 @@
    <strong>English</strong> · <a href="./README.zh.md">简体中文</a>
 </p>
 
-> 🎛️ Official development kit for **UlanziStudio** programmable macro keypad platform
+> Official development kit for **UlanziStudio** programmable macro keypad platform
 >
 > **SDK Version:** Based on Ulanzi JS Plugin Development Protocol V2.1.2
 > **Compatible:** Ulanzi Studio 3.0.11

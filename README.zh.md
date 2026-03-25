@@ -4,7 +4,7 @@
    <a href="./README.md">English</a> · <strong>简体中文</strong>
 </p>
 
-> 🎛️ UlanziDeck（U-Studio）可编程宏按键平台官方开发套件
+> **UlanziStudio**可编程宏按键平台官方开发套件
 >
 > **协议版本：** 基于 Ulanzi JS 插件开发协议 V2.1.2
 > **兼容版本：** Ulanzi Studio 3.0.11
