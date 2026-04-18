@@ -122,10 +122,12 @@ export default class Clients extends EventEmitter {
 
       //实体按键事件
       this.deckClient.on('ulanzi-cmd',(data) => {
+        console.log('收到实体按键事件', data)
         const context = utils.encodeContext(data)
         const param = this.contextDatas[context] || null
-        this.send(data.cmd,{
+        this.send(data.tocmd,{
           ...data,
+          cmd: data.tocmd,
           param
         },true)
       })
@@ -188,8 +190,10 @@ export default class Clients extends EventEmitter {
             "settings":oldParam
           }))
 
-          this.log(`${isMainSend?'插件主服务':context} 发送 [getSettings]获取参数 事件。上位机将通过 ${forwardCmd} 事件发送参数到请求端。以下是发送的数据：`,JSON.stringify({
-            "cmd": forwardCmd,
+          const mainUuid = this.getMainUuid(data.uuid)
+          const isMainSend = this.clientList[mainUuid] == client  // 判断是不是主服务发送的
+          this.log(`${isMainSend?'插件主服务':context} 发送 [getSettings]获取参数 事件。上位机将通过 didReceiveSettings 事件发送参数到请求端。以下是发送的数据：`,JSON.stringify({
+            "cmd": "didReceiveSettings",
             uuid,
             actionid,
             key,
@@ -411,6 +415,8 @@ export default class Clients extends EventEmitter {
     }else{
       uuid = utils.encodeContext(data)
     }
+    // console.log('send to client',cmd, data, 'uuid:', uuid)
+    // console.log('current clientList', Object.keys(this.clientList))
     this.clientList[uuid] && this.clientList[uuid].send(JSON.stringify({
       cmd,
       ...data

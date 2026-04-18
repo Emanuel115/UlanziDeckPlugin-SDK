@@ -614,56 +614,56 @@ function handleMenuItemClick(itemId) {
     //   })
     //   break;
     case 'menu-keyDown':
-      send('ulanzi-cmd', { uuid, key, actionid, cmd:'keydown' })
+      send('ulanzi-cmd', { uuid, key, actionid, tocmd:'keydown' })
       log({
         time: time(),
         msg: `运行 ${uuid}___${key}___${actionid}。上位机向主服务发送[按钮按下]事件：keydown。`
       })
       break;
     case 'menu-keyUp':
-      send('ulanzi-cmd', { uuid, key, actionid, cmd:'keyup' })
+      send('ulanzi-cmd', { uuid, key, actionid, tocmd:'keyup' })
       log({
         time: time(),
         msg: `运行 ${uuid}___${key}___${actionid}。上位机向主服务发送[按钮松开]事件：keyup。`
       })
       break;
     case 'menu-dailDown':
-      send('ulanzi-cmd', { uuid, key, actionid, cmd:'daildown' })
+      send('ulanzi-cmd', { uuid, key, actionid, tocmd:'daildown' })
       log({
         time: time(),
         msg: `运行 ${uuid}___${key}___${actionid}。上位机向主服务发送[旋钮按下]事件：daildown。`
       })
       break;
     case 'menu-dailUp':
-      send('ulanzi-cmd', { uuid, key, actionid, cmd:'dailup' })
+      send('ulanzi-cmd', { uuid, key, actionid, tocmd:'dailup' })
       log({
         time: time(),
         msg: `运行 ${uuid}___${key}___${actionid}。上位机向主服务发送[旋钮松开]事件：dailup。`
       })
       break;
     case 'menu-dailLeft':
-      send('ulanzi-cmd', { uuid, key, actionid, cmd:'dialrotate', rotateEvent:'left' })
+      send('ulanzi-cmd', { uuid, key, actionid, tocmd:'dialrotate', rotateEvent:'left' })
       log({
         time: time(),
         msg: `运行 ${uuid}___${key}___${actionid}。上位机向主服务发送[旋钮向左旋转]事件：dialrotate|left。`
       })
       break;
     case 'menu-dailRight':
-      send('ulanzi-cmd', { uuid, key, actionid, cmd:'dialrotate', rotateEvent:'right' })
+      send('ulanzi-cmd', { uuid, key, actionid, tocmd:'dialrotate', rotateEvent:'right' })
       log({
         time: time(),
         msg: `运行 ${uuid}___${key}___${actionid}。上位机向主服务发送[旋钮向右旋转]事件：dialrotate|right。`
       })
       break;
     case 'menu-dailHoldLeft':
-      send('ulanzi-cmd', { uuid, key, actionid, cmd:'dialrotate', rotateEvent:'hold-left' })
+      send('ulanzi-cmd', { uuid, key, actionid, tocmd:'dialrotate', rotateEvent:'hold-left' })
       log({
         time: time(),
         msg: `运行 ${uuid}___${key}___${actionid}。上位机向主服务发送[旋钮按压向左旋转]事件：dialrotate|hold-left。`
       })
       break;
     case 'menu-dailHoldRight':
-      send('ulanzi-cmd', { uuid, key, actionid, cmd:'dialrotate', rotateEvent:'hold-right' })
+      send('ulanzi-cmd', { uuid, key, actionid, tocmd:'dialrotate', rotateEvent:'hold-right' })
       log({
         time: time(),
         msg: `运行 ${uuid}___${key}___${actionid}。上位机向主服务发送[旋钮按压向右旋转]事件：dialrotate|hold-right。`
