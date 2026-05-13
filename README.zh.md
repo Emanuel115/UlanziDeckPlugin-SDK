@@ -232,7 +232,10 @@ $UD.onRun((message) => {
 
 在插件根目录创建国际化 JSON 文件：
 
-国际化 JSON 文件可以包含两类内容：顶层的 Manifest 字段和自定义界面文案。顶层的 `Name`、`Description`，以及与 `manifest.json` 顺序一致的 `Actions` 数组，用于本地化插件和操作在应用中的展示信息；`Localization` 对象用于本地化 Property Inspector 或页面中的文案，每个 key 对应 HTML 中通过 `data-localize` 引用的文本或属性值。
+国际化 JSON 文件可以包含两类内容：
+
+- 顶层 Manifest 字段：使用 `Name`、`Description`，以及与 `manifest.json` 顺序一致的 `Actions` 数组，本地化插件和操作在应用中的展示信息。
+- `Localization` 对象：用于本地化 Property Inspector 或页面中的文案，每个 key 对应 HTML 中通过 `data-localize` 引用的文本或属性值。
 
 **zh_CN.json：**
 ```json

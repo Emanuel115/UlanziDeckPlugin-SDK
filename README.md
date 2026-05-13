@@ -232,7 +232,10 @@ Create `property-inspector/inspector.html`:
 
 Create localization JSON files in the plugin root directory:
 
-Localization JSON files can include two kinds of entries: top-level manifest fields and custom UI strings. Use top-level `Name`, `Description`, and an `Actions` array aligned with `manifest.json` to localize how the plugin and its actions appear in the app. Use the `Localization` object for Property Inspector or page text, where each key matches the text or attribute value referenced by `data-localize`.
+Localization JSON files can include two kinds of entries:
+
+- Top-level manifest fields: use `Name`, `Description`, and an `Actions` array aligned with `manifest.json` to localize how the plugin and its actions appear in the app.
+- `Localization` object: use it for Property Inspector or page text. Each key matches the text or attribute value referenced by `data-localize`.
 
 **zh_CN.json:**
 ```json
