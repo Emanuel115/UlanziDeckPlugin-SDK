@@ -145,12 +145,9 @@ Plugins can use either HTML or Node.js as the main service. Choose based on your
 **Node.js Main Service (`plugin/app.js`):**
 
 ```js
-import UlanziApi, { Utils, RandomPort } from './plugin-common-node/index.js';
+import UlanziApi from './plugin-common-node/index.js';
 
 const $UD = new UlanziApi();
-
-// Generate random port for Property Inspector connection (Node.js only)
-const port = new RandomPort().getPort();
 
 // Connect to UlanziStudio
 $UD.connect('com.ulanzi.ulanzistudio.myplugin');
@@ -172,7 +169,7 @@ $UD.onRun((message) => {
 
 **Key Differences:**
 - HTML uses `<script>` tags to load SDK; Node.js uses ES modules (`import`)
-- Node.js requires `RandomPort` to generate WebSocket port for Property Inspector connection
+- `RandomPort` is only needed when a Property Inspector page bypasses UlanziStudio and connects directly to a self-hosted Node.js main service
 - Both use the same `$UD` API for events and commands
 
 ---
@@ -648,8 +645,10 @@ $UD.onSendToPropertyInspector((message) => {})
    ```
 
 4. **Port Management**
-   For Node.js main services, use `RandomPort` to avoid port conflicts:
+   Normal plugins pass parameters between the Property Inspector page and the main service through UlanziStudio's standard events, so they do not need to manage ports. Use `RandomPort` only when the Property Inspector page needs to bypass UlanziStudio and connect directly to a WebSocket / HTTP service hosted by the plugin's own Node.js main service. It generates a random listening port and writes it to `ws-port.js` for the Property Inspector page to read:
    ```js
+   import { RandomPort } from './plugin-common-node/index.js';
+
    const port = new RandomPort().getPort();  // Writes ws-port.js
    ```
 

@@ -145,12 +145,9 @@ npm install ws
 **Node.js 主服务（`plugin/app.js`）：**
 
 ```js
-import UlanziApi, { Utils, RandomPort } from './plugin-common-node/index.js';
+import UlanziApi from './plugin-common-node/index.js';
 
 const $UD = new UlanziApi();
-
-// 生成随机端口供配置页面连接（仅 Node.js 需要）
-const port = new RandomPort().getPort();
 
 // 连接到 UlanziStudio
 $UD.connect('com.ulanzi.ulanzistudio.myplugin');
@@ -172,7 +169,7 @@ $UD.onRun((message) => {
 
 **主要区别：**
 - HTML 使用 `<script>` 标签加载 SDK；Node.js 使用 ES 模块（`import`）
-- Node.js 需要 `RandomPort` 生成 WebSocket 端口供配置页面连接
+- 当配置页面需要绕过 UlanziStudio、直连自建 Node.js 主服务时，才需要 `RandomPort` 生成随机端口
 - 两者使用相同的 `$UD` API 处理事件和命令
 
 ---
@@ -647,8 +644,10 @@ $UD.onSendToPropertyInspector((message) => {})
    ```
 
 4. **端口管理**
-   Node.js 主服务使用 `RandomPort` 避免端口冲突：
+   普通插件通过 UlanziStudio 的标准事件在配置页面与主服务之间传递参数，不需要自己管理端口。只有当配置页面需要绕过 UlanziStudio、直接连接插件自建的 Node.js WebSocket / HTTP 服务时，才使用 `RandomPort` 生成随机监听端口，并写入 `ws-port.js` 供配置页面读取：
    ```js
+   import { RandomPort } from './plugin-common-node/index.js';
+
    const port = new RandomPort().getPort();  // 写入 ws-port.js
    ```
 
