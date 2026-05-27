@@ -709,7 +709,7 @@ $UD.onSendToPropertyInspector((message) => {})
 
 ## 📜 许可证
 
-**AGPL 3.0** — 使用该 SDK 的服务提供商必须公开其修改后的源代码。
+**Apache License 2.0** - 开发者可使用本 SDK 开发及分发插件，包括商业或闭源插件，但需遵守许可证条款并保留必要声明。
 
 ---
 

@@ -9,7 +9,7 @@
   },
   "type": "module",
   "author": "ulanzi",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "@svgdotjs/svg.js": "3.2.4",
     "axios": "^1.13.2",

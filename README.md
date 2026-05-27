@@ -710,7 +710,7 @@ Full reference: **[manifest.md](./manifest.md)**
 
 ## 📜 License
 
-**AGPL 3.0** — Services using this SDK must disclose their modified source code.
+**Apache License 2.0** - Developers may use this SDK to build and distribute plugins, including commercial or closed-source plugins, subject to the license terms and required notices.
 
 ---
 
